@@ -3,7 +3,7 @@ Documentation    Recursos da página de inventário
 Library    SeleniumLibrary
 
 *** Variables ***
-${BOTAO_ADICIONAR_AO_CARRINHO}    xpath://button[contains(text(),'Add to cart')]
+${BOTAO_ADICIONAR_AO_CARRINHO}    css:button[data-test="add-to-cart-sauce-labs-backpack"]
 ${ICONE_CARRINHO}    css:.shopping_cart_link    
 ${BADGE_CARRINHO}    css:.shopping_cart_badge
 
@@ -13,8 +13,11 @@ A página de inventário deve estar visível
 
 Adicionar Primeiro Produto ao Carrinho
     Wait Until Element Is Visible    ${BOTAO_ADICIONAR_AO_CARRINHO}    20s
+    Scroll Element Into View    ${BOTAO_ADICIONAR_AO_CARRINHO}
+    Sleep    2s
     Click Element    ${BOTAO_ADICIONAR_AO_CARRINHO}
-    Wait Until Page Contains Element    xpath://button[normalize-space()="Remove"]    10s
+    Sleep    1s
+    Wait Until Page Contains Element    xpath://button[normalize-space()="Remove"]    20s
 
 Verificar Se o Produto Foi Adicionado ao Carrinho
     [Arguments]    ${quantidade}

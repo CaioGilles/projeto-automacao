@@ -17,4 +17,4 @@ Digitar Senha
     Input Text    ${CAMPO_SENHA}    ${senha}
 
 Clicar em Login
-    Click Button    ${BOTAO_LOGIN}
+    Click Element    ${BOTAO_LOGIN}

@@ -13,7 +13,7 @@ Dado que o usuário está logado
     Clicar em Login
     Location Should Be    https://www.saucedemo.com/inventory.html
     A página de inventário deve estar visível
-
+    Pausar Após Login
 
     
 *** Test Cases ***
