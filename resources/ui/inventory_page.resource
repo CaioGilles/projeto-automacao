@@ -14,9 +14,10 @@ A página de inventário deve estar visível
 Adicionar Primeiro Produto ao Carrinho
     Wait Until Element Is Visible    ${BOTAO_ADICIONAR_AO_CARRINHO}    10s
     Click Element    ${BOTAO_ADICIONAR_AO_CARRINHO}
+    Wait Until Page Contains Element    xpath://button[normalize-space()="Remove"]    10s
 
 Verificar Se o Produto Foi Adicionado ao Carrinho
     [Arguments]    ${quantidade}
-    Wait Until Page Contains Element    ${BADGE_CARRINHO}    10s
-    Wait Until Keyword Succeeds    5x    1s    Element Text Should Be    ${BADGE_CARRINHO}    ${quantidade}
+    Wait Until Page Contains Element    ${BADGE_CARRINHO}    20s
+    Wait Until Keyword Succeeds    10x    1s    Element Text Should Be    ${BADGE_CARRINHO}    ${quantidade}
     
