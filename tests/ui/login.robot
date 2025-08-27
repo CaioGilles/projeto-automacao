@@ -5,7 +5,6 @@ Resource    ../../resources/ui/login_page.resource
 Test Setup    Abrir Navegador e Acessar a Página de Login
 Test Teardown    Fechar Navegador
 
-
 *** Test Cases ***
 Cenário: Login com Credenciais Válidas
     [Tags]    smoke    login

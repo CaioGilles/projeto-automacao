@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 *** Variables ***
 ${HEADLESS}    ${TRUE}
 ${BROWSER_DELAY}    5s
-${POST_LOGIN_DELAY}    8s
+${POST_LOGIN_DELAY}    12s
 
 *** Keywords ***
 Abrir Navegador e Acessar a Página de Login
