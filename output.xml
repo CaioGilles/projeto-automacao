@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-27T10:31:56.989535" rpa="false" schemaversion="5">
+<suite id="s1" name="Ui" source="C:\Users\caio.gilles\Desktop\projeto-automacao\tests\ui">
+<suite id="s1-s1" name="Inventory" source="C:\Users\caio.gilles\Desktop\projeto-automacao\tests\ui\inventory.robot">
+<kw name="Abrir Navegador e Acessar a Página de Login" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:31:57.269597" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>https://www.saucedemo.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-27T10:31:57.269456" elapsed="3.718983"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-27T10:32:00.988641" elapsed="0.023521"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.012451" elapsed="0.002197"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:31:57.269060" elapsed="3.745813"/>
+</kw>
+<test id="s1-s1-t1" name="Cenário: Adicionar Produto ao Carrinho" line="20">
+<kw name="Dado que o usuário está logado">
+<kw name="Digitar Usuario" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:01.018222" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${CAMPO_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.017545" elapsed="0.162956"/>
+</kw>
+<arg>standard_user</arg>
+<status status="PASS" start="2025-08-27T10:32:01.017018" elapsed="0.163593"/>
+</kw>
+<kw name="Digitar Senha" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:01.181353" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.180998" elapsed="0.078013"/>
+</kw>
+<arg>secret_sauce</arg>
+<status status="PASS" start="2025-08-27T10:32:01.180768" elapsed="0.078338"/>
+</kw>
+<kw name="Clicar em Login" owner="login_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:01.259799" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.259573" elapsed="0.091023"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:01.259287" elapsed="0.091393"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:01.356987" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.350780" elapsed="0.006304"/>
+</kw>
+<kw name="A página de inventário deve estar visível" owner="inventory_page">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Products</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.357529" elapsed="0.013134"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:01.357285" elapsed="0.013460"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:01.016412" elapsed="0.354369"/>
+</kw>
+<kw name="Adicionar Primeiro Produto ao Carrinho" owner="inventory_page">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:01.371476" level="INFO">Clicking element 'xpath://button[contains(text(),'Add to cart')]'.</msg>
+<arg>${BOTAO_ADICIONAR_AO_CARRINHO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.371340" elapsed="0.051401"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:01.371145" elapsed="0.051678"/>
+</kw>
+<kw name="Verificar Se o Produto Foi Adicionado ao Carrinho" owner="inventory_page">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:01.423797" level="INFO">Verifying element 'css:.shopping_cart_badge' contains exact text '1'.</msg>
+<arg>${BADGE_CARRINHO}</arg>
+<arg>${quantidade}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.423567" elapsed="0.017518"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2025-08-27T10:32:01.423249" elapsed="0.017922"/>
+</kw>
+<tag>cart</tag>
+<tag>regression</tag>
+<status status="PASS" start="2025-08-27T10:32:01.015204" elapsed="0.426166"/>
+</test>
+<kw name="Fechar Navegador" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-27T10:32:01.442431" elapsed="2.336332"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:01.442240" elapsed="2.336640"/>
+</kw>
+<doc>Testes da funcionalidade de inventário de produtos</doc>
+<status status="PASS" start="2025-08-27T10:31:57.011103" elapsed="6.767805"/>
+</suite>
+<suite id="s1-s2" name="Login" source="C:\Users\caio.gilles\Desktop\projeto-automacao\tests\ui\login.robot">
+<test id="s1-s2-t1" name="Cenário: Login com Credenciais Válidas" line="10">
+<kw name="Abrir Navegador e Acessar a Página de Login" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:03.786173" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>https://www.saucedemo.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-27T10:32:03.785959" elapsed="3.159504"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-27T10:32:06.945854" elapsed="0.026477"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-08-27T10:32:06.972562" elapsed="0.001556"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:03.785507" elapsed="3.188788"/>
+</kw>
+<kw name="Digitar Usuario" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:06.975175" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${CAMPO_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-27T10:32:06.974983" elapsed="0.143356"/>
+</kw>
+<arg>standard_user</arg>
+<status status="PASS" start="2025-08-27T10:32:06.974731" elapsed="0.143706"/>
+</kw>
+<kw name="Digitar Senha" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:07.119055" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-27T10:32:07.118908" elapsed="0.115091"/>
+</kw>
+<arg>secret_sauce</arg>
+<status status="PASS" start="2025-08-27T10:32:07.118709" elapsed="0.115381"/>
+</kw>
+<kw name="Clicar em Login" owner="login_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:07.234920" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-27T10:32:07.234723" elapsed="0.096181"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:07.234431" elapsed="0.096874"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-08-27T10:32:07.337685" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-08-27T10:32:07.331665" elapsed="0.006107"/>
+</kw>
+<kw name="Fechar Navegador" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-27T10:32:07.338263" elapsed="2.374761"/>
+</kw>
+<status status="PASS" start="2025-08-27T10:32:07.338082" elapsed="2.375194"/>
+</kw>
+<tag>login</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-08-27T10:32:03.784577" elapsed="5.929375"/>
+</test>
+<doc>Testes da página de login</doc>
+<status status="PASS" start="2025-08-27T10:32:03.779708" elapsed="5.935956"/>
+</suite>
+<status status="PASS" start="2025-08-27T10:31:56.992169" elapsed="12.725747"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cart</stat>
+<stat pass="1" fail="0" skip="0">login</stat>
+<stat pass="1" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Ui" id="s1" pass="2" fail="0" skip="0">Ui</stat>
+<stat name="Inventory" id="s1-s1" pass="1" fail="0" skip="0">Ui.Inventory</stat>
+<stat name="Login" id="s1-s2" pass="1" fail="0" skip="0">Ui.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

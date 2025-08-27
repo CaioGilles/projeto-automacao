@@ -1,0 +1,13 @@
+# Ambiente Virtual
+venv/
+
+# Resultados do Robot
+results/
+*.log
+*.html
+*.xml
+
+# Arquivos do Python
+__pycache__/
+*.pyc
+
