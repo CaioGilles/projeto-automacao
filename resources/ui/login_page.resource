@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation    Recursos da página de login
+Library    SeleniumLibrary
 
 *** Variables ***
 ${CAMPO_USUARIO}    id:user-name

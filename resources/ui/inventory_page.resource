@@ -16,8 +16,7 @@ Adicionar Primeiro Produto ao Carrinho
     Scroll Element Into View    ${BOTAO_ADICIONAR_AO_CARRINHO}
     Sleep    2s
     Click Element    ${BOTAO_ADICIONAR_AO_CARRINHO}
-    Sleep    1s
-    Wait Until Page Contains Element    xpath://button[normalize-space()="Remove"]    20s
+    Sleep    2s
 
 Verificar Se o Produto Foi Adicionado ao Carrinho
     [Arguments]    ${quantidade}

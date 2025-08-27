@@ -10,7 +10,8 @@ ${POST_LOGIN_DELAY}    8s
 Abrir Navegador e Acessar a Página de Login
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${timestamp}=    Evaluate    str(__import__('time').time()).replace('.', '_')
-    ${tmpdir}=    Evaluate    __import__('tempfile').mkdtemp(prefix=f'chrome_{timestamp}_', suffix='_profile')
+    ${prefix}=    Set Variable    chrome_${timestamp}_
+    ${tmpdir}=    Evaluate    __import__('tempfile').mkdtemp(prefix='${prefix}', suffix='_profile')
     ${headless}=    Set Variable    --headless=new
     ${userdatadir}=    Set Variable    --user-data-dir=${tmpdir}
     Run Keyword If    '${HEADLESS}'=='${TRUE}'    Call Method    ${options}    add_argument    ${headless}
