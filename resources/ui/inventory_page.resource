@@ -16,5 +16,6 @@ Adicionar Primeiro Produto ao Carrinho
 
 Verificar Se o Produto Foi Adicionado ao Carrinho
     [Arguments]    ${quantidade}
+    Wait Until Element Is Visible    ${BADGE_CARRINHO}    5s
     Element Text Should Be    ${BADGE_CARRINHO}    ${quantidade}
     
