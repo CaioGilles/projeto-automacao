@@ -9,11 +9,7 @@ ${POST_LOGIN_DELAY}    12s
 *** Keywords ***
 Abrir Navegador e Acessar a Página de Login
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    ${timestamp}=    Evaluate    str(__import__('time').time()).replace('.', '_')
-    ${prefix}=    Set Variable    chrome_${timestamp}_
-    ${tmpdir}=    Evaluate    __import__('tempfile').mkdtemp(prefix='${prefix}', suffix='_profile')
     ${headless}=    Set Variable    --headless=new
-    ${userdatadir}=    Set Variable    --user-data-dir=${tmpdir}
     Run Keyword If    '${HEADLESS}'=='${TRUE}'    Call Method    ${options}    add_argument    ${headless}
     Call Method    ${options}    add_argument    --no-sandbox
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
@@ -23,7 +19,6 @@ Abrir Navegador e Acessar a Página de Login
     Call Method    ${options}    add_argument    --disable-background-timer-throttling
     Call Method    ${options}    add_argument    --disable-backgrounding-occluded-windows
     Call Method    ${options}    add_argument    --disable-renderer-backgrounding
-    Call Method    ${options}    add_argument    ${userdatadir}
     Create WebDriver    Chrome    options=${options}
     Go To    https://www.saucedemo.com/
     Maximize Browser Window
